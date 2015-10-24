@@ -172,6 +172,7 @@ class Handler:
 		category=builder.get_object("comboboxtext-entry").get_text()
 		terminal=builder.get_object("switchTerminal").get_state()
 		keywords=builder.get_object("entryKeywords").get_text().strip()
+		wmclass=builder.get_object("entryWMclass").get_text().strip()
 		#check if the name contains nothing or only spaces
 		if name and executable:
 			if path and not os.path.isdir(path):
@@ -193,6 +194,7 @@ class Handler:
 				launcherString+="Name="+name+"\n"
 				launcherString+="Icon="+self.iconPath+"\n"
 				launcherString+="Keywords="+keywords+"\n"
+				launcherString+="StartupWMClass="+wmclass+"\n"
 				launcherString+=self.untouchableLines
 				if self.customSavePath:
 					self.savePath=self.customSavePath
@@ -284,6 +286,7 @@ class Handler:
 			category=builder.get_object("comboboxtext-entry")
 			terminal=builder.get_object("switchTerminal")
 			keywords=builder.get_object("entryKeywords")
+			wmclass=builder.get_object("entryWMclass")
 
 			self.resetUI()
 
@@ -342,6 +345,10 @@ class Handler:
 					keywords.set_text(lines[i].strip()[9:])
 					lines.pop(i)
 					skip[6]=True
+				elif lines[i].strip()[:15] == "StartupWMClass=" and not skip[7]:
+					wmclass.set_text(lines[i].strip()[15:])
+					lines.pop(i)
+					skip[7]=True
 				else:
 					self.untouchableLines+=lines.pop(i)
 		except:
