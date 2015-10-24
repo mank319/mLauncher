@@ -454,6 +454,45 @@ Author: Gabriele Musco
               </packing>
             </child>
             <child>
+              <object class="GtkBox" id="boxWMclass">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="orientation">vertical</property>
+                <property name="spacing">10</property>
+                <child>
+                  <object class="GtkLabel" id="labelWMclass">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="halign">start</property>
+                    <property name="label" translatable="yes">StartupWMClass:</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="entryWMclass">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="secondary_icon_tooltip_text" translatable="yes">Used to relate specific windows to certain applications. For example to assign a custom icon to a Chromium webapp.</property>
+                    <property name="placeholder_text" translatable="yes">(Optional)</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">6</property>
+              </packing>
+            </child>
+            <child>
               <object class="GtkBox" id="boxIcon">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
@@ -569,7 +608,7 @@ Author: Gabriele Musco
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">True</property>
-                <property name="position">6</property>
+                <property name="position">7</property>
               </packing>
             </child>
           </object>
